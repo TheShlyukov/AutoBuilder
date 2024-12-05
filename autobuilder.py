@@ -79,12 +79,12 @@ class AutoBuilder:
     def setup_python(self):
         print("Setting up Python environment...")
         self.install_packages(["python3", "pip"], package_manager="brew")
-        response = input("Do you wish to install pyinstaller for compiling to binary? (y/n): ").strip().lower()
+        response = input("Do you want to install pyinstaller for compiling to binary? (y/n): ").strip().lower()
         if response == "y":
             self.run_command("pip install pyinstaller")
 
     def compile_python(self, project_path):
-        response = input("Do you want compile Python project to binary? (y/n): ").strip().lower()
+        response = input("Do you want to compile Python project to binary? (y/n): ").strip().lower()
         if response == "y":
             print("Compiling Python project to binary...")
             self.run_command(f"pyinstaller --onefile {project_path}")
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="AutoBuilder: automatic build and setup for projects.")
-    parser.add_argument("language", help="Programming language (python, cpp, java и др.)")
+    parser.add_argument("language", help="Programming language (python, cpp, java etc.)")
     parser.add_argument("project_path", help="Path to project")
     parser.add_argument("--package-manager", help="Package Manager to installing dependencies (e.g. brew, apt, choco, vcpkg)")
 
